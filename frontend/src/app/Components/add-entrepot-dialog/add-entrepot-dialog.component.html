@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>{{ data?.entrepot ? 'Edit Warehouse' : 'Add Warehouse' }}</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="entrepot.nom" name="nom" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Address</mat-label>
+      <input matInput [(ngModel)]="entrepot.adresse" name="adresse" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Capacity</mat-label>
+      <input matInput type="number" [(ngModel)]="entrepot.capacite" name="capacite" required>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>

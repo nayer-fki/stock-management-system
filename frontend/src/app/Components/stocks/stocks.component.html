@@ -1,0 +1,60 @@
+<div class="manage-stocks">
+  <div class="header">
+    <h2>Manage Stocks</h2>
+    <button mat-raised-button color="primary" (click)="openAddStockDialog()">
+      <mat-icon>add</mat-icon> Add Stock
+    </button>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <!-- Search -->
+  <div class="search-filter">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search by Product or Entrepot Name</mat-label>
+      <input matInput [(ngModel)]="searchTerm" (input)="filterStocks()" placeholder="Search">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <!-- Stocks List -->
+  <div class="stocks-list">
+    <h2>Stocks List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Entrepot Name</th>
+          <th>Quantity</th>
+          <th>Alert Threshold</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stock of filteredStocks">
+          <td>{{ stock.produitNom }}</td>
+          <td>{{ stock.entrepotNom }}</td>
+          <td>{{ stock.quantite }}</td>
+          <td>{{ stock.seuilAlerte }}</td>
+          <td>
+            <button mat-icon-button color="primary" (click)="openEditStockDialog(stock)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" (click)="openAddMovementDialog(stock)">
+              <mat-icon>swap_horiz</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteStock(stock.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="filteredStocks.length === 0 && !errorMessage" class="no-stocks">
+      <p>No stocks found.</p>
+    </div>
+  </div>
+</div>

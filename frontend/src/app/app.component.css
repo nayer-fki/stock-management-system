@@ -1,0 +1,72 @@
+.dashboard-container {
+  display: flex;
+  min-height: 100vh; /* Use min-height instead of fixed height */
+  background-color: #F8F9FA;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 250px; /* Keep sidebar width, but make it adjustable */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Allow vertical scrolling if content overflows */
+  position: relative;
+  top: 60px; /* Adjust header height */
+  width: calc(100% - 250px); /* Account for sidebar width */
+  min-height: calc(100vh - 60px); /* Ensure minimum height */
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #FFFFFF;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  background-color: #F8F9FA;
+  padding: 20px 0;
+  overflow-y: auto;
+  transition: width 0.3s; /* Smooth transition for responsive design */
+}
+
+/* Header Styling (if applicable) */
+.header {
+  position: fixed;
+  top: 0;
+  left: 250px;
+  right: 0;
+  height: 60px;
+  background-color: #FFFFFF;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px; /* Reduce sidebar width on smaller screens */
+    left: -200px; /* Hide sidebar by default */
+    transition: left 0.3s; /* Smooth slide effect */
+  }
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    top: 60px;
+    min-height: calc(100vh - 60px);
+  }
+  .header {
+    left: 0;
+  }
+  /* Toggle sidebar on mobile (add this with a button in HTML if needed) */
+  .sidebar.open {
+    left: 0;
+  }
+}

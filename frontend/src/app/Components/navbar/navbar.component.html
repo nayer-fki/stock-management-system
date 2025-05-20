@@ -1,0 +1,45 @@
+<div class="navbar">
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      (keyup)="onSearch()"
+      placeholder="Search anything here..."
+      class="search-input"
+      aria-label="Search bar"
+    />
+    <i class="fas fa-search search-icon" aria-hidden="true"></i> <!-- Updated to fas -->
+  </div>
+  <div *ngIf="searchQuery.trim() && searchResults.length > 0" class="search-results">
+    <ul>
+      <li *ngFor="let result of searchResults" (click)="selectResult(result)">
+        {{ result.name }}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="searchQuery.trim() && searchResults.length === 0" class="no-results-message">
+    No results found for "{{ searchQuery }}"
+  </div>
+  <div *ngIf="searchLoading" class="loading-spinner">
+    <i class="fas fa-spinner fa-spin" aria-hidden="true"></i> <!-- Updated to fas -->
+    Loading...
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  <div class="navbar-right">
+    <button class="icon-btn" aria-label="Notification">
+      <i class="fas fa-bell" aria-hidden="true"></i>
+      <span class="notification-count">{{ notifications }}</span>
+    </button>
+    <div class="profile">
+      <img
+        [src]="user.profileImage"
+        alt="Profile picture"
+        class="profile-img"
+        aria-label="User profile picture"
+      />
+      <span class="profile-name">{{ user.name }}</span>
+    </div>
+  </div>
+</div>

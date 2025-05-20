@@ -1,0 +1,124 @@
+:host {
+    display: block;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h2[mat-dialog-title] {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1E3A8A;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E2E8F0;
+  }
+
+  mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+    max-height: 450px;
+    overflow-y: auto;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  mat-label {
+    color: #2D3748;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  input[matInput], mat-select {
+    font-size: 14px;
+    color: #2D3748;
+  }
+
+  input[matInput] {
+    padding: 4px 0;
+  }
+
+  mat-select {
+    padding: 4px 0;
+  }
+
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 0 0 0;
+    border-top: 1px solid #E2E8F0;
+  }
+
+  button[mat-button] {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+  }
+
+  button[mat-button]:first-child {
+    color: #6B7280;
+    background-color: #F7FAFC;
+  }
+
+  button[mat-button]:first-child:hover {
+    background-color: #E2E8F0;
+  }
+
+  button[mat-button]:last-child {
+    color: #FFFFFF;
+    background-color: #1E3A8A;
+  }
+
+  button[mat-button]:last-child:hover {
+    background-color: #153066;
+  }
+
+  button[mat-button][disabled] {
+    background-color: #CBD5E1;
+    color: #94A3B8;
+    cursor: not-allowed;
+  }
+
+  .error-message {
+    color: #D32F2F;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #FFEBEE;
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    h2[mat-dialog-title] {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    mat-dialog-content {
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    button[mat-button] {
+      font-size: 13px;
+      padding: 6px 16px;
+    }
+
+    .error-message {
+      font-size: 13px;
+      padding: 10px;
+    }
+  }

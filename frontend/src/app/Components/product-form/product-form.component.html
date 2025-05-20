@@ -1,0 +1,52 @@
+<div class="manage-products">
+  <div class="header">
+    <h2>Manage Products</h2>
+    <button mat-raised-button color="primary" (click)="openAddProductDialog()">
+      <mat-icon>add</mat-icon> Add Product
+    </button>
+  </div>
+
+  <!-- Search and Filter -->
+  <div class="search-filter">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search Products</mat-label>
+      <input matInput [(ngModel)]="searchTerm" (input)="filterProducts()" placeholder="Search by name or supplier">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Filter by Category</mat-label>
+      <mat-select [(ngModel)]="filterCategory" (selectionChange)="filterProducts()">
+        <mat-option value="">All Categories</mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Product Cards -->
+  <div class="product-grid">
+    <mat-card *ngFor="let produit of filteredProduits" class="product-card">
+      <mat-card-header>
+        <mat-card-title>{{ produit.nom }}</mat-card-title>
+        <mat-card-subtitle>{{ produit.categorie }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image *ngIf="produit.image" [src]="'data:image/jpeg;base64,' + produit.image" alt="Product Image">
+      <mat-card-content>
+        <p><strong>Price:</strong> ${{ produit.prix }}</p>
+        <p><strong>Supplier:</strong> {{ produit.fournisseur }}</p>
+        <p><strong>Min Threshold:</strong> {{ produit.seuilMin }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-icon-button color="primary" (click)="openEditProductDialog(produit)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteProduit(produit.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div *ngIf="filteredProduits.length === 0" class="no-products">
+    <p>No products found.</p>
+  </div>
+</div>

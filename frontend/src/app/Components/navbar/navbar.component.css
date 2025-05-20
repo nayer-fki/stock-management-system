@@ -1,0 +1,188 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 250px;
+  width: calc(100% - 250px);
+  height: 60px;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px; /* Increased padding for better spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 600px; /* Increased further to give more space, matching the screenshot */
+}
+
+.search-input {
+  padding: 12px 40px 12px 15px; /* Slightly increased padding for better appearance */
+  font-size: 14px;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  outline: none;
+  width: 100%;
+  background-color: #EDF2F7;
+  color: #2D3748;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: #718096;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Increased gap for better separation */
+}
+
+.icon-btn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px; /* Increased padding for better click area */
+  font-size: 20px; /* Increased for better visibility */
+  color: #718096;
+}
+
+.icon-btn i {
+  font-size: 22px; /* Increased to ensure the bell icon stands out */
+}
+
+.notification-count {
+  position: absolute;
+  top: -6px; /* Fine-tuned positioning */
+  right: -6px;
+  background-color: #F6AD55;
+  color: #FFFFFF;
+  border-radius: 50%;
+  width: 20px; /* Slightly larger for readability */
+  height: 20px;
+  font-size: 12px; /* Increased for better readability */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF; /* Thicker border for contrast */
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjusted gap */
+  min-width: 150px; /* Increased to ensure space for "Prof John" */
+  max-width: 200px; /* Allow flexibility */
+}
+
+.profile-img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #4299E1;
+}
+
+.profile-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2D3748;
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: visible; /* Ensure full visibility */
+  text-overflow: ellipsis; /* Fallback if space is limited */
+}
+
+/* Search Results Dropdown */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-width: 600px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.search-results ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-results li {
+  padding: 10px;
+  border-bottom: 1px solid #E2E8F0;
+  cursor: pointer;
+  color: #2D3748;
+}
+
+.search-results li:hover {
+  background-color: #EDF2F7;
+}
+
+/* No Results Message */
+.no-results-message {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #FFFFFF;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 8px;
+  z-index: 1000;
+  color: #718096;
+}
+
+/* Loading Spinner and Error Message */
+.loading-spinner, .error-message {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #FFFFFF;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 8px;
+  z-index: 1000;
+  color: #718096;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    left: 200px;
+    width: calc(100% - 200px);
+    padding: 0 15px; /* Reduced padding on mobile */
+  }
+  .search-container {
+    max-width: 200px;
+  }
+  .profile {
+    min-width: 80px; /* Reduced on mobile */
+  }
+  .profile-name {
+    display: none; /* Hide name on small screens */
+  }
+  .icon-btn {
+    font-size: 18px; /* Slightly reduced on mobile */
+  }
+  .icon-btn i {
+    font-size: 20px;
+  }
+}

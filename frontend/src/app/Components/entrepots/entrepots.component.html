@@ -1,0 +1,55 @@
+<div class="manage-entrepots">
+  <div class="header">
+    <h2>Manage Warehouses</h2>
+    <button mat-raised-button color="primary" (click)="openAddEntrepotDialog()">
+      <mat-icon>add</mat-icon> Add Warehouse
+    </button>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <!-- Search -->
+  <div class="search-filter">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search by name or address</mat-label>
+      <input matInput [(ngModel)]="searchTerm" (input)="filterEntrepots()" placeholder="Search">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <!-- Entrepots List -->
+  <div class="entrepots-list">
+    <h2>Warehouses List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Capacity</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entrepot of filteredEntrepots">
+          <td>{{ entrepot.nom }}</td>
+          <td>{{ entrepot.adresse }}</td>
+          <td>{{ entrepot.capacite }}</td>
+          <td>
+            <button mat-icon-button color="primary" (click)="openEditEntrepotDialog(entrepot)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteEntrepot(entrepot.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="filteredEntrepots.length === 0 && !errorMessage" class="no-entrepots">
+      <p>No warehouses found.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="manage-users">
+  <div class="header">
+    <h2>Manage Users</h2>
+    <button mat-raised-button color="primary" (click)="openAddUserDialog()">
+      <mat-icon>add</mat-icon> Add User
+    </button>
+  </div>
+
+  <!-- Search and Filter -->
+  <div class="search-filter">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search by name or email</mat-label>
+      <input matInput [(ngModel)]="searchTerm" (input)="filterUtilisateurs()" placeholder="Search">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Filter by Role</mat-label>
+      <mat-select [(ngModel)]="filterRole" (selectionChange)="filterUtilisateurs()">
+        <mat-option value="">All Roles</mat-option>
+        <mat-option *ngFor="let role of getUniqueRoles()" [value]="role">{{ role }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Users List -->
+  <div class="users-list">
+    <h2>Users List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let utilisateur of filteredUtilisateurs">
+          <td>{{ utilisateur.nom }}</td>
+          <td>{{ utilisateur.email }}</td>
+          <td>{{ utilisateur.role }}</td>
+          <td>
+            <img
+              *ngIf="utilisateur.image"
+              [src]="'data:image/jpeg;base64,' + utilisateur.image"
+              alt="User Image"
+              class="user-image"
+            />
+            <span *ngIf="!utilisateur.image">No Image</span>
+          </td>
+          <td>
+            <button mat-icon-button color="primary" (click)="openEditUserDialog(utilisateur)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteUtilisateur(utilisateur.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="filteredUtilisateurs.length === 0" class="no-users">
+      <p>No users found.</p>
+    </div>
+  </div>
+</div>

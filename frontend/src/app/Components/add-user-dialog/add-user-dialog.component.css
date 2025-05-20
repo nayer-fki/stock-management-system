@@ -1,0 +1,19 @@
+mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input[type="file"] {
+  margin: 10px 0;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

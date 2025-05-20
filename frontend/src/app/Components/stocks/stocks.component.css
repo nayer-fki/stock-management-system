@@ -1,0 +1,95 @@
+.manage-stocks {
+    padding: 0 20px;
+    min-height: calc(100vh - 140px);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-top: 10px;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1E3A8A;
+  }
+
+  .header button {
+    padding: 8px 16px;
+    min-width: 120px;
+  }
+
+  .search-filter {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .search-field {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .stocks-list {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .stocks-list table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+  }
+
+  .stocks-list th,
+  .stocks-list td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .stocks-list th {
+    background-color: #EDF2F7;
+    color: #2D3748;
+    font-weight: 500;
+  }
+
+  .stocks-list button {
+    margin-right: 5px;
+  }
+
+  .no-stocks {
+    text-align: center;
+    color: #6B7280;
+    margin-top: 24px;
+    font-size: 16px;
+  }
+
+  .error-message {
+    color: #D32F2F;
+    background-color: #FFEBEE;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .search-filter {
+      flex-direction: column;
+    }
+    .search-field {
+      width: 100%;
+    }
+    .stocks-list table {
+      min-width: 100%;
+    }
+  }

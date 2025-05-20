@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>{{ data?.produit ? 'Edit Product' : 'Add Product' }}</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="produit.nom" name="nom" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="produit.categorie" name="categorie" required>
+        <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" [(ngModel)]="produit.prix" name="prix" step="0.01" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Supplier</mat-label>
+      <input matInput [(ngModel)]="produit.fournisseur" name="fournisseur" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Minimum Threshold</mat-label>
+      <input matInput type="number" [(ngModel)]="produit.seuilMin" name="seuilMin" required>
+    </mat-form-field>
+    <div>
+      <label>Image:</label>
+      <input type="file" (change)="onFileChange($event)" accept="image/*">
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>

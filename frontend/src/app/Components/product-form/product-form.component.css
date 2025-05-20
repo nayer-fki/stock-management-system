@@ -1,0 +1,113 @@
+.manage-products {
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1E3A8A; /* Deep blue */
+}
+
+.search-filter {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.search-field,
+.filter-field {
+  flex: 1;
+}
+
+.search-field mat-label,
+.filter-field mat-label {
+  color: #6B7280; /* Gray */
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+}
+
+.product-card img {
+  max-height: 160px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+mat-card-header {
+  padding: 16px;
+}
+
+mat-card-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1E3A8A;
+}
+
+mat-card-subtitle {
+  font-size: 14px;
+  color: #6B7280;
+}
+
+mat-card-content {
+  padding: 16px;
+}
+
+mat-card-content p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #374151; /* Dark gray */
+}
+
+mat-card-content strong {
+  color: #1E3A8A;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 16px;
+  margin-top: auto;
+}
+
+.no-products {
+  text-align: center;
+  color: #6B7280;
+  margin-top: 24px;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-filter {
+    flex-direction: column;
+  }
+
+  .search-field,
+  .filter-field {
+    width: 100%;
+  }
+}

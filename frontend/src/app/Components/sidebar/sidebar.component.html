@@ -1,0 +1,36 @@
+<div class="sidebar">
+  <div class="logo">
+    <h3>Stock</h3>
+  </div>
+  <ul class="menu">
+    <li *ngFor="let item of navItems">
+      <a [routerLink]="item.route" routerLinkActive="active" class="menu-item">
+        <i class="fas fa-{{ item.icon }}"></i>
+        <span>{{ item.label }}</span>
+      </a>
+    </li>
+  </ul>
+  <div class="profile-section">
+    <div class="profile-info">
+      <i class="fas fa-user-circle"></i>
+      <span>Profile</span>
+    </div>
+    <ul class="profile-menu">
+      <li>
+        <a [routerLink]="'/profile'" routerLinkActive="active" class="menu-item">
+          <i class="fas fa-user-edit"></i> Edit Profile
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="'/settings'" routerLinkActive="active" class="menu-item">
+          <i class="fas fa-cogs"></i> Settings
+        </a>
+      </li>
+      <li>
+        <a (click)="logout()" class="menu-item">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
